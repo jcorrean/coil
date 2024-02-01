@@ -1,0 +1,33 @@
+---
+title: "SEM Strategies for COIL-related Data"
+author: "Juan C. Correa"
+date: "2024-02-01"
+output: html_document
+---
+
+# Strategy 1: Examining distributional assumptions
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(readr)
+coildata <- coildata <- read_csv("Data/coildata.csv")
+```
+
+## Testing Univariate and Multivariate Normal Distribution Assumptions
+
+The evaluation of these assumptions is relatively straightforward through exploratory data visualization of kernel density plots and the Henze-Zirkler test implemented in the R package MVN
+
+```{r}
+library(ggplot2)
+
+coildata_long <- reshape2::melt(coildata)
+
+ggplot(coildata_long, aes(x = value, fill = variable)) +
+  geom_density(alpha = 0.5) +
+  facet_wrap(~variable, scales = "free", ncol = 5) +
+  theme_minimal() +  # Optional: Customize the theme
+  labs(title = "Statistical distributions of observed variables")
+
+library(MVN)
+mvn(coildata)
+```

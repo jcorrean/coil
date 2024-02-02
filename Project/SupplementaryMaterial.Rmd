@@ -5,6 +5,15 @@ date: "2024-02-01"
 output: html_document
 ---
 
+# Modeling Strategies
+
+In this Supplementary Material, we will show two strategies of structural equation modeling. In our first strategy, we follow a "top-down modeling" which deviates from the second strategy called "bottom-up modeling" in several ways.
+
+```{r}
+knitr::kable(head(mtcars[, 1:4]), "pipe")
+```
+
+
 # Strategy 1: Examining distributional assumptions
 
 ```{r setup, include=FALSE}
@@ -31,3 +40,5 @@ ggplot(coildata_long, aes(x = value, fill = variable)) +
 library(MVN)
 mvn(coildata)
 ```
+
+These results show that the univariate and multivariate normal distribution assumptions are unmet. As a result, these violations can be a possible cause of poor fit when testing the psychometric structure of the transactive memory systems scale. In the remainder of 

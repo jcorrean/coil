@@ -350,4 +350,5 @@ knitr::kable(head(CO$pe, 15), "pipe")
 CO$fit
 ```
 
-The resulting goodness-of-fit indexes for this model revealed unacceptable values (i.e., CFI = 0.856, RMSEA = 0.127; SRMR = 0.109)
+The resulting goodness-of-fit indexes for this model revealed unacceptable values (i.e., CFI = 0.856, RMSEA = 0.127; SRMR = 0.109). Thus, we propose a simplified model that retains items that behaved as expected and discard those whose estimates grossly deviated from theoretical expectations. 
+

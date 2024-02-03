@@ -357,69 +357,10 @@ display: none;
 </div>
 
 
-<div id="modeling-strategies" class="section level1">
-<h1>Modeling Strategies</h1>
 <p>In this Supplementary Material, we will show two strategies of
 structural equation modeling. In our first strategy, we follow a
 “top-down modeling” which deviates from the second strategy called
 “bottom-up modeling” in several ways.</p>
-<pre class="r"><code>knitr::kable(head(mtcars[, 1:4]), &quot;pipe&quot;)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">mpg</th>
-<th align="right">cyl</th>
-<th align="right">disp</th>
-<th align="right">hp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Mazda RX4</td>
-<td align="right">21.0</td>
-<td align="right">6</td>
-<td align="right">160</td>
-<td align="right">110</td>
-</tr>
-<tr class="even">
-<td align="left">Mazda RX4 Wag</td>
-<td align="right">21.0</td>
-<td align="right">6</td>
-<td align="right">160</td>
-<td align="right">110</td>
-</tr>
-<tr class="odd">
-<td align="left">Datsun 710</td>
-<td align="right">22.8</td>
-<td align="right">4</td>
-<td align="right">108</td>
-<td align="right">93</td>
-</tr>
-<tr class="even">
-<td align="left">Hornet 4 Drive</td>
-<td align="right">21.4</td>
-<td align="right">6</td>
-<td align="right">258</td>
-<td align="right">110</td>
-</tr>
-<tr class="odd">
-<td align="left">Hornet Sportabout</td>
-<td align="right">18.7</td>
-<td align="right">8</td>
-<td align="right">360</td>
-<td align="right">175</td>
-</tr>
-<tr class="even">
-<td align="left">Valiant</td>
-<td align="right">18.1</td>
-<td align="right">6</td>
-<td align="right">225</td>
-<td align="right">105</td>
-</tr>
-</tbody>
-</table>
-</div>
 <div id="testing-univariate-and-multivariate-normal-distribution-assumptions" class="section level1">
 <h1>Testing Univariate and Multivariate Normal Distribution
 Assumptions</h1>
@@ -480,7 +421,1013 @@ the specialization sub-scale, the credibility sub-scale, and the
 coordination sub-scale.</p>
 <div id="unidimensionality-of-specialization" class="section level2">
 <h2>Unidimensionality of Specialization</h2>
+<p>The results of this simple model are far from conclusive, because
+some of its Goodness of fit are ok (e.g., CFI = 1.00, RMSEA = 0.00) but
+others are not (e.g., SRMR = 0.12 and confidence intervals for RMSEA
+include values that exceed acceptable values 0.00 &gt;= RMSEA &lt;=
+0.13).</p>
+<pre><code>##                                      SP.fit
+## npar                            15.00000000
+## fmin                             0.02070262
+## chisq                            2.69134101
+## df                               5.00000000
+## pvalue                           0.74744247
+## chisq.scaled                     2.35808976
+## df.scaled                        5.00000000
+## pvalue.scaled                    0.79769859
+## chisq.scaling.factor             1.14132255
+## baseline.chisq                 153.97290979
+## baseline.df                     10.00000000
+## baseline.pvalue                  0.00000000
+## baseline.chisq.scaled          108.27437551
+## baseline.df.scaled              10.00000000
+## baseline.pvalue.scaled           0.00000000
+## baseline.chisq.scaling.factor    1.42206232
+## cfi                              1.00000000
+## tli                              1.03207074
+## cfi.scaled                       1.00000000
+## tli.scaled                       1.05376600
+## cfi.robust                       1.00000000
+## tli.robust                       1.04315166
+## logl                          -382.99480859
+## unrestricted.logl             -381.64913808
+## aic                            795.98961718
+## bic                            828.60542623
+## ntotal                          65.00000000
+## bic2                           781.38919901
+## rmsea                            0.00000000
+## rmsea.ci.lower                   0.00000000
+## rmsea.ci.upper                   0.12145197
+## rmsea.ci.level                   0.90000000
+## rmsea.pvalue                     0.80654697
+## rmsea.close.h0                   0.05000000
+## rmsea.notclose.pvalue            0.12673918
+## rmsea.notclose.h0                0.08000000
+## rmsea.scaled                     0.00000000
+## rmsea.ci.lower.scaled            0.00000000
+## rmsea.ci.upper.scaled            0.09948800
+## rmsea.pvalue.scaled              0.86972101
+## rmsea.notclose.pvalue.scaled     0.07891867
+## rmsea.robust                     0.00000000
+## rmsea.ci.lower.robust            0.00000000
+## rmsea.ci.upper.robust            0.11782540
+## rmsea.pvalue.robust              0.84196979
+## rmsea.notclose.pvalue.robust     0.10702837
+## srmr                             0.01957034</code></pre>
+<p>The value of 0.12 for standardized root mean squared residual (SRMR)
+can be an indicator of some problems of misspecification error. We will
+check if this is the case by looking at the values of factor loadings
+between specialization and its five observed variables. The transactive
+memory systems scale proposed for English speakers by Lewis (2003) and
+validated for Spanish speakers by García-Chitiva (2021) indicate that
+all factor loadings should be positive and statistically significant. If
+this implied hypothesis is not met, specification error might be due to
+those factor loadings that behave differently.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="4%" />
+<col width="6%" />
+<col width="12%" />
+<col width="6%" />
+<col width="15%" />
+<col width="15%" />
+<col width="17%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">lhs</th>
+<th align="left">op</th>
+<th align="left">rhs</th>
+<th align="left">label</th>
+<th align="right">exo</th>
+<th align="right">est</th>
+<th align="right">se</th>
+<th align="right">z</th>
+<th align="right">pvalue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP1</td>
+<td align="left">SP__SP1</td>
+<td align="right">0</td>
+<td align="right">0.8551255</td>
+<td align="right">0.0855144</td>
+<td align="right">9.9997819</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP2</td>
+<td align="left">SP__SP2</td>
+<td align="right">0</td>
+<td align="right">0.0790281</td>
+<td align="right">0.1704259</td>
+<td align="right">0.4637095</td>
+<td align="right">0.6428559</td>
+</tr>
+<tr class="odd">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP3</td>
+<td align="left">SP__SP3</td>
+<td align="right">0</td>
+<td align="right">0.7229196</td>
+<td align="right">0.1015288</td>
+<td align="right">7.1203421</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP4</td>
+<td align="left">SP__SP4</td>
+<td align="right">0</td>
+<td align="right">0.9227822</td>
+<td align="right">0.0900206</td>
+<td align="right">10.2507911</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP5</td>
+<td align="left">SP__SP5</td>
+<td align="right">0</td>
+<td align="right">0.7147160</td>
+<td align="right">0.1121704</td>
+<td align="right">6.3716973</td>
+<td align="right">0.0000000</td>
+</tr>
+</tbody>
+</table>
+<p>As expected, all factor loadings are positive and highly significant
+except that of the second item (SP2) whose factor loading is almost zero
+and non-significant (<span class="math inline">\(\lambda\)</span> =
+0.079, se = 0.17, p = 0.64). This particular result will lead us to
+reduce the complexity of this unidimensional model for Specialization by
+removing SP2 from the proposed structure (i.e., just four items). If
+this simpler model behaves as expected we can keep it for further
+analyses.</p>
+<pre><code>##                                     SP2.fit
+## npar                            12.00000000
+## fmin                             0.01801554
+## chisq                            2.34202027
+## df                               2.00000000
+## pvalue                           0.31005359
+## chisq.scaled                     1.43775271
+## df.scaled                        2.00000000
+## pvalue.scaled                    0.48729950
+## chisq.scaling.factor             1.62894513
+## baseline.chisq                 153.24399760
+## baseline.df                      6.00000000
+## baseline.pvalue                  0.00000000
+## baseline.chisq.scaled          113.39382693
+## baseline.df.scaled               6.00000000
+## baseline.pvalue.scaled           0.00000000
+## baseline.chisq.scaling.factor    1.35143157
+## cfi                              0.99767719
+## tli                              0.99303156
+## cfi.scaled                       1.00000000
+## tli.scaled                       1.01570613
+## cfi.robust                       1.00000000
+## tli.robust                       1.01893136
+## logl                          -291.45748572
+## unrestricted.logl             -290.28647558
+## aic                            606.91497144
+## bic                            633.00761868
+## ntotal                          65.00000000
+## bic2                           595.23463691
+## rmsea                            0.05129255
+## rmsea.ci.lower                   0.00000000
+## rmsea.ci.upper                   0.25720715
+## rmsea.ci.level                   0.90000000
+## rmsea.pvalue                     0.36708276
+## rmsea.close.h0                   0.05000000
+## rmsea.notclose.pvalue            0.55162345
+## rmsea.notclose.h0                0.08000000
+## rmsea.scaled                     0.00000000
+## rmsea.ci.lower.scaled            0.00000000
+## rmsea.ci.upper.scaled            0.17763594
+## rmsea.pvalue.scaled              0.61897521
+## rmsea.notclose.pvalue.scaled     0.29409360
+## rmsea.robust                     0.00000000
+## rmsea.ci.lower.robust            0.00000000
+## rmsea.ci.upper.robust            0.28466261
+## rmsea.pvalue.robust              0.52114998
+## rmsea.notclose.pvalue.robust     0.43020921
+## srmr                             0.02057845</code></pre>
+<p>As expected, this simpler model shows a better performance (CFI =
+0.99; rmsea = 0.05; SRMR = 0.02) and all factor loadings are positive
+and highly significant.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">lhs</th>
+<th align="left">op</th>
+<th align="left">rhs</th>
+<th align="left">label</th>
+<th align="right">exo</th>
+<th align="right">est</th>
+<th align="right">se</th>
+<th align="right">z</th>
+<th align="right">pvalue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP1</td>
+<td align="left">SP__SP1</td>
+<td align="right">0</td>
+<td align="right">0.8543817</td>
+<td align="right">0.0856837</td>
+<td align="right">9.971339</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP3</td>
+<td align="left">SP__SP3</td>
+<td align="right">0</td>
+<td align="right">0.7222787</td>
+<td align="right">0.1017186</td>
+<td align="right">7.100752</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP4</td>
+<td align="left">SP__SP4</td>
+<td align="right">0</td>
+<td align="right">0.9237103</td>
+<td align="right">0.0901998</td>
+<td align="right">10.240715</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP5</td>
+<td align="left">SP__SP5</td>
+<td align="right">0</td>
+<td align="right">0.7146653</td>
+<td align="right">0.1123047</td>
+<td align="right">6.363627</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
 </div>
+<div id="unidimensionality-of-credibility" class="section level2">
+<h2>Unidimensionality of Credibility</h2>
+<p>We continue our analyses with the sub-scale of credibility. The
+results of this simple model are unsatisfactory due to its poor fit
+(e.g., CFI = 0.87, RMSEA = 0.22, SRMR = 0.27).</p>
+<pre><code>##                                      CR.fit
+## npar                           1.500000e+01
+## fmin                           1.389881e-01
+## chisq                          1.806845e+01
+## df                             5.000000e+00
+## pvalue                         2.861831e-03
+## chisq.scaled                   1.791212e+01
+## df.scaled                      5.000000e+00
+## pvalue.scaled                  3.058586e-03
+## chisq.scaling.factor           1.008728e+00
+## baseline.chisq                 1.708086e+02
+## baseline.df                    1.000000e+01
+## baseline.pvalue                0.000000e+00
+## baseline.chisq.scaled          1.386469e+02
+## baseline.df.scaled             1.000000e+01
+## baseline.pvalue.scaled         0.000000e+00
+## baseline.chisq.scaling.factor  1.231968e+00
+## cfi                            9.187329e-01
+## tli                            8.374658e-01
+## cfi.scaled                     8.996314e-01
+## tli.scaled                     7.992627e-01
+## cfi.robust                     9.178188e-01
+## tli.robust                     8.356376e-01
+## logl                          -3.822655e+02
+## unrestricted.logl             -3.732313e+02
+## aic                            7.945310e+02
+## bic                            8.271468e+02
+## ntotal                         6.500000e+01
+## bic2                           7.799306e+02
+## rmsea                          2.005258e-01
+## rmsea.ci.lower                 1.062989e-01
+## rmsea.ci.upper                 3.039176e-01
+## rmsea.ci.level                 9.000000e-01
+## rmsea.pvalue                   7.683791e-03
+## rmsea.close.h0                 5.000000e-02
+## rmsea.notclose.pvalue          9.789324e-01
+## rmsea.notclose.h0              8.000000e-02
+## rmsea.scaled                   1.993228e-01
+## rmsea.ci.lower.scaled          1.053520e-01
+## rmsea.ci.upper.scaled          3.023383e-01
+## rmsea.pvalue.scaled            7.942925e-03
+## rmsea.notclose.pvalue.scaled   9.782570e-01
+## rmsea.robust                   2.001908e-01
+## rmsea.ci.lower.robust          1.054282e-01
+## rmsea.ci.upper.robust          3.041197e-01
+## rmsea.pvalue.robust            8.082682e-03
+## rmsea.notclose.pvalue.robust   9.781314e-01
+## srmr                           8.744494e-02</code></pre>
+<p>When looking at the factor loadings of this sub-scale, we find two
+items (i.e., CR4 and CR5) whose values are far from what we expect from
+theory because they showed non-significant negative values.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="4%" />
+<col width="6%" />
+<col width="12%" />
+<col width="6%" />
+<col width="16%" />
+<col width="15%" />
+<col width="16%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">lhs</th>
+<th align="left">op</th>
+<th align="left">rhs</th>
+<th align="left">label</th>
+<th align="right">exo</th>
+<th align="right">est</th>
+<th align="right">se</th>
+<th align="right">z</th>
+<th align="right">pvalue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR1</td>
+<td align="left">CR__CR1</td>
+<td align="right">0</td>
+<td align="right">0.6291956</td>
+<td align="right">0.1174860</td>
+<td align="right">5.3554945</td>
+<td align="right">0.0000001</td>
+</tr>
+<tr class="even">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR2</td>
+<td align="left">CR__CR2</td>
+<td align="right">0</td>
+<td align="right">0.9546001</td>
+<td align="right">0.0897488</td>
+<td align="right">10.6363542</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR3</td>
+<td align="left">CR__CR3</td>
+<td align="right">0</td>
+<td align="right">0.9412024</td>
+<td align="right">0.0771009</td>
+<td align="right">12.2074176</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR4</td>
+<td align="left">CR__CR4</td>
+<td align="right">0</td>
+<td align="right">-0.0569750</td>
+<td align="right">0.1375291</td>
+<td align="right">-0.4142762</td>
+<td align="right">0.6786718</td>
+</tr>
+<tr class="odd">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR5</td>
+<td align="left">CR__CR5</td>
+<td align="right">0</td>
+<td align="right">-0.2712524</td>
+<td align="right">0.1389443</td>
+<td align="right">-1.9522383</td>
+<td align="right">0.0509099</td>
+</tr>
+</tbody>
+</table>
+<p>We then move on to reduce the complexity of this credibility
+sub-scale by specifying a structure with just three items (i.e., CR1,
+CR2, and CR3).</p>
+<pre><code>##                                     CR2.fit
+## npar                           9.000000e+00
+## fmin                           2.220446e-16
+## chisq                          2.886580e-14
+## df                             0.000000e+00
+## pvalue                                   NA
+## chisq.scaled                   2.886580e-14
+## df.scaled                      0.000000e+00
+## pvalue.scaled                            NA
+## chisq.scaling.factor                     NA
+## baseline.chisq                 1.479501e+02
+## baseline.df                    3.000000e+00
+## baseline.pvalue                0.000000e+00
+## baseline.chisq.scaled          1.185267e+02
+## baseline.df.scaled             3.000000e+00
+## baseline.pvalue.scaled         0.000000e+00
+## baseline.chisq.scaling.factor  1.248242e+00
+## cfi                            1.000000e+00
+## tli                            1.000000e+00
+## cfi.scaled                     1.000000e+00
+## tli.scaled                     1.000000e+00
+## cfi.robust                               NA
+## tli.robust                               NA
+## logl                          -2.012063e+02
+## unrestricted.logl             -2.012063e+02
+## aic                            4.204127e+02
+## bic                            4.399821e+02
+## ntotal                         6.500000e+01
+## bic2                           4.116524e+02
+## rmsea                          0.000000e+00
+## rmsea.ci.lower                 0.000000e+00
+## rmsea.ci.upper                 0.000000e+00
+## rmsea.ci.level                 9.000000e-01
+## rmsea.pvalue                             NA
+## rmsea.close.h0                 5.000000e-02
+## rmsea.notclose.pvalue                    NA
+## rmsea.notclose.h0              8.000000e-02
+## rmsea.scaled                             NA
+## rmsea.ci.lower.scaled                    NA
+## rmsea.ci.upper.scaled                    NA
+## rmsea.pvalue.scaled                      NA
+## rmsea.notclose.pvalue.scaled             NA
+## rmsea.robust                   0.000000e+00
+## rmsea.ci.lower.robust          0.000000e+00
+## rmsea.ci.upper.robust          0.000000e+00
+## rmsea.pvalue.robust                      NA
+## rmsea.notclose.pvalue.robust             NA
+## srmr                           8.847635e-09</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">lhs</th>
+<th align="left">op</th>
+<th align="left">rhs</th>
+<th align="left">label</th>
+<th align="right">exo</th>
+<th align="right">est</th>
+<th align="right">se</th>
+<th align="right">z</th>
+<th align="right">pvalue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR1</td>
+<td align="left">CR__CR1</td>
+<td align="right">0</td>
+<td align="right">0.6297249</td>
+<td align="right">0.1171865</td>
+<td align="right">5.373699</td>
+<td align="right">1e-07</td>
+</tr>
+<tr class="even">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR2</td>
+<td align="left">CR__CR2</td>
+<td align="right">0</td>
+<td align="right">0.9402841</td>
+<td align="right">0.0881465</td>
+<td align="right">10.667293</td>
+<td align="right">0e+00</td>
+</tr>
+<tr class="odd">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR3</td>
+<td align="left">CR__CR3</td>
+<td align="right">0</td>
+<td align="right">0.9557501</td>
+<td align="right">0.0770680</td>
+<td align="right">12.401383</td>
+<td align="right">0e+00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="unidimensionality-of-coordination" class="section level2">
+<h2>Unidimensionality of Coordination</h2>
+<p>Like previous sub-scale, let us show the results for the
+unidimensionality of coordination with all of its five observed
+variables. Here, the results are even worse than previous sub-scales, as
+the goodness-of-fit indexes reveal unsatisfactory values (i.e., CFI =
+0.78; RMSEA = 0.27; SRMR = 0.12).</p>
+<pre><code>##                                      CD.fit
+## npar                           1.500000e+01
+## fmin                           2.291422e-01
+## chisq                          2.978848e+01
+## df                             5.000000e+00
+## pvalue                         1.623187e-05
+## chisq.scaled                   2.853803e+01
+## df.scaled                      5.000000e+00
+## pvalue.scaled                  2.856341e-05
+## chisq.scaling.factor           1.043817e+00
+## baseline.chisq                 1.237677e+02
+## baseline.df                    1.000000e+01
+## baseline.pvalue                0.000000e+00
+## baseline.chisq.scaled          1.116262e+02
+## baseline.df.scaled             1.000000e+01
+## baseline.pvalue.scaled         0.000000e+00
+## baseline.chisq.scaling.factor  1.108770e+00
+## cfi                            7.821133e-01
+## tli                            5.642265e-01
+## cfi.scaled                     7.683861e-01
+## tli.scaled                     5.367723e-01
+## cfi.robust                     7.819543e-01
+## tli.robust                     5.639086e-01
+## logl                          -4.116460e+02
+## unrestricted.logl             -3.967517e+02
+## aic                            8.532919e+02
+## bic                            8.859077e+02
+## ntotal                         6.500000e+01
+## bic2                           8.386915e+02
+## rmsea                          2.761743e-01
+## rmsea.ci.lower                 1.856398e-01
+## rmsea.ci.upper                 3.756871e-01
+## rmsea.ci.level                 9.000000e-01
+## rmsea.pvalue                   8.257066e-05
+## rmsea.close.h0                 5.000000e-02
+## rmsea.notclose.pvalue          9.995953e-01
+## rmsea.notclose.h0              8.000000e-02
+## rmsea.scaled                   2.691184e-01
+## rmsea.ci.lower.scaled          1.802190e-01
+## rmsea.ci.upper.scaled          3.667090e-01
+## rmsea.pvalue.scaled            1.027645e-04
+## rmsea.notclose.pvalue.scaled   9.994961e-01
+## rmsea.robust                   2.749512e-01
+## rmsea.ci.lower.robust          1.822949e-01
+## rmsea.ci.upper.robust          3.768904e-01
+## rmsea.pvalue.robust            1.292602e-04
+## rmsea.notclose.pvalue.robust   9.994227e-01
+## srmr                           1.236348e-01</code></pre>
+<p>When looking at the factor loadings, it turns out that this sub-scale
+has two items (i.e., CD3 and CD5) whose values deviate from theoretical
+considerations as they show non-significant negative factor
+loadings.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="4%" />
+<col width="6%" />
+<col width="12%" />
+<col width="6%" />
+<col width="17%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">lhs</th>
+<th align="left">op</th>
+<th align="left">rhs</th>
+<th align="left">label</th>
+<th align="right">exo</th>
+<th align="right">est</th>
+<th align="right">se</th>
+<th align="right">z</th>
+<th align="right">pvalue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD1</td>
+<td align="left">CD__CD1</td>
+<td align="right">0</td>
+<td align="right">0.8443683</td>
+<td align="right">0.0819707</td>
+<td align="right">10.300859</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD2</td>
+<td align="left">CD__CD2</td>
+<td align="right">0</td>
+<td align="right">0.7483724</td>
+<td align="right">0.1029411</td>
+<td align="right">7.269909</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD3</td>
+<td align="left">CD__CD3</td>
+<td align="right">0</td>
+<td align="right">-0.1911435</td>
+<td align="right">0.1468250</td>
+<td align="right">-1.301846</td>
+<td align="right">0.1929690</td>
+</tr>
+<tr class="even">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD4</td>
+<td align="left">CD__CD4</td>
+<td align="right">0</td>
+<td align="right">0.8330905</td>
+<td align="right">0.0913703</td>
+<td align="right">9.117734</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD5</td>
+<td align="left">CD__CD5</td>
+<td align="right">0</td>
+<td align="right">-0.2495697</td>
+<td align="right">0.1394635</td>
+<td align="right">-1.789499</td>
+<td align="right">0.0735346</td>
+</tr>
+</tbody>
+</table>
+<p>We remove these two items and contrast a simpler model with the three
+items that showed the expected statistical behavior implied by the
+theory of transactive memory systems scale. Now, the goodness-of-fit
+indexes proved to be better (i.e., CFI = 1.00; RMSEA = 0.00; SRMR =
+3.68e-08).</p>
+<pre><code>##                                     CD2.fit
+## npar                           9.000000e+00
+## fmin                           1.110223e-15
+## chisq                          1.443290e-13
+## df                             0.000000e+00
+## pvalue                                   NA
+## chisq.scaled                   1.443290e-13
+## df.scaled                      0.000000e+00
+## pvalue.scaled                            NA
+## chisq.scaling.factor                     NA
+## baseline.chisq                 8.885709e+01
+## baseline.df                    3.000000e+00
+## baseline.pvalue                0.000000e+00
+## baseline.chisq.scaled          9.390907e+01
+## baseline.df.scaled             3.000000e+00
+## baseline.pvalue.scaled         0.000000e+00
+## baseline.chisq.scaling.factor  9.462035e-01
+## cfi                            1.000000e+00
+## tli                            1.000000e+00
+## cfi.scaled                     1.000000e+00
+## tli.scaled                     1.000000e+00
+## cfi.robust                               NA
+## tli.robust                               NA
+## logl                          -2.307528e+02
+## unrestricted.logl             -2.307528e+02
+## aic                            4.795056e+02
+## bic                            4.990751e+02
+## ntotal                         6.500000e+01
+## bic2                           4.707454e+02
+## rmsea                          0.000000e+00
+## rmsea.ci.lower                 0.000000e+00
+## rmsea.ci.upper                 0.000000e+00
+## rmsea.ci.level                 9.000000e-01
+## rmsea.pvalue                             NA
+## rmsea.close.h0                 5.000000e-02
+## rmsea.notclose.pvalue                    NA
+## rmsea.notclose.h0              8.000000e-02
+## rmsea.scaled                             NA
+## rmsea.ci.lower.scaled                    NA
+## rmsea.ci.upper.scaled                    NA
+## rmsea.pvalue.scaled                      NA
+## rmsea.notclose.pvalue.scaled             NA
+## rmsea.robust                   0.000000e+00
+## rmsea.ci.lower.robust          0.000000e+00
+## rmsea.ci.upper.robust          0.000000e+00
+## rmsea.pvalue.robust                      NA
+## rmsea.notclose.pvalue.robust             NA
+## srmr                           3.686551e-08</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">lhs</th>
+<th align="left">op</th>
+<th align="left">rhs</th>
+<th align="left">label</th>
+<th align="right">exo</th>
+<th align="right">est</th>
+<th align="right">se</th>
+<th align="right">z</th>
+<th align="right">pvalue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD1</td>
+<td align="left">CD__CD1</td>
+<td align="right">0</td>
+<td align="right">0.8619992</td>
+<td align="right">0.0808327</td>
+<td align="right">10.663996</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD2</td>
+<td align="left">CD__CD2</td>
+<td align="right">0</td>
+<td align="right">0.7477846</td>
+<td align="right">0.1027518</td>
+<td align="right">7.277578</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD4</td>
+<td align="left">CD__CD4</td>
+<td align="right">0</td>
+<td align="right">0.8183547</td>
+<td align="right">0.0864116</td>
+<td align="right">9.470421</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="testing-multidimensionality-of-collaboration" class="section level1">
+<h1>Testing Multidimensionality of Collaboration</h1>
+<p>When testing the unidimensionality of each sub-scale, we found
+evidence that none of them behave as expected with their five observed
+variables, and we had to test simpler models by removing those items
+with a gross deviation from theoretical considerartions. It goes without
+saying that if we test the multidimensionality of the transactive memory
+scale, its behavior will be far from satisfactory when all fifteen items
+are included in the specification. We will show that this is the case as
+follows.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="4%" />
+<col width="6%" />
+<col width="12%" />
+<col width="6%" />
+<col width="16%" />
+<col width="15%" />
+<col width="16%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">lhs</th>
+<th align="left">op</th>
+<th align="left">rhs</th>
+<th align="left">label</th>
+<th align="right">exo</th>
+<th align="right">est</th>
+<th align="right">se</th>
+<th align="right">z</th>
+<th align="right">pvalue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP1</td>
+<td align="left">SP__SP1</td>
+<td align="right">0</td>
+<td align="right">0.8490642</td>
+<td align="right">0.0882953</td>
+<td align="right">9.6161852</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP2</td>
+<td align="left">SP__SP2</td>
+<td align="right">0</td>
+<td align="right">0.0415599</td>
+<td align="right">0.1725248</td>
+<td align="right">0.2408924</td>
+<td align="right">0.8096385</td>
+</tr>
+<tr class="odd">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP3</td>
+<td align="left">SP__SP3</td>
+<td align="right">0</td>
+<td align="right">0.7306128</td>
+<td align="right">0.1008163</td>
+<td align="right">7.2469698</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP4</td>
+<td align="left">SP__SP4</td>
+<td align="right">0</td>
+<td align="right">0.9359851</td>
+<td align="right">0.0841183</td>
+<td align="right">11.1270077</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">SP</td>
+<td align="left">=~</td>
+<td align="left">SP5</td>
+<td align="left">SP__SP5</td>
+<td align="right">0</td>
+<td align="right">0.6841429</td>
+<td align="right">0.1146666</td>
+<td align="right">5.9663687</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR1</td>
+<td align="left">CR__CR1</td>
+<td align="right">0</td>
+<td align="right">0.6399978</td>
+<td align="right">0.1159941</td>
+<td align="right">5.5175052</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR2</td>
+<td align="left">CR__CR2</td>
+<td align="right">0</td>
+<td align="right">0.9373601</td>
+<td align="right">0.0839291</td>
+<td align="right">11.1684730</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR3</td>
+<td align="left">CR__CR3</td>
+<td align="right">0</td>
+<td align="right">0.9568273</td>
+<td align="right">0.0745830</td>
+<td align="right">12.8290197</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR4</td>
+<td align="left">CR__CR4</td>
+<td align="right">0</td>
+<td align="right">-0.0349491</td>
+<td align="right">0.1396828</td>
+<td align="right">-0.2502035</td>
+<td align="right">0.8024300</td>
+</tr>
+<tr class="even">
+<td align="left">CR</td>
+<td align="left">=~</td>
+<td align="left">CR5</td>
+<td align="left">CR__CR5</td>
+<td align="right">0</td>
+<td align="right">-0.2571265</td>
+<td align="right">0.1412763</td>
+<td align="right">-1.8200250</td>
+<td align="right">0.0687552</td>
+</tr>
+<tr class="odd">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD1</td>
+<td align="left">CD__CD1</td>
+<td align="right">0</td>
+<td align="right">0.8432862</td>
+<td align="right">0.0811865</td>
+<td align="right">10.3870302</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD2</td>
+<td align="left">CD__CD2</td>
+<td align="right">0</td>
+<td align="right">0.7087458</td>
+<td align="right">0.0994080</td>
+<td align="right">7.1296638</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD3</td>
+<td align="left">CD__CD3</td>
+<td align="right">0</td>
+<td align="right">-0.2567766</td>
+<td align="right">0.1382790</td>
+<td align="right">-1.8569464</td>
+<td align="right">0.0633188</td>
+</tr>
+<tr class="even">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD4</td>
+<td align="left">CD__CD4</td>
+<td align="right">0</td>
+<td align="right">0.8432465</td>
+<td align="right">0.1033685</td>
+<td align="right">8.1576716</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">CD</td>
+<td align="left">=~</td>
+<td align="left">CD5</td>
+<td align="left">CD__CD5</td>
+<td align="right">0</td>
+<td align="right">-0.2939569</td>
+<td align="right">0.1321558</td>
+<td align="right">-2.2243202</td>
+<td align="right">0.0261269</td>
+</tr>
+</tbody>
+</table>
+<pre><code>##                          npar                          fmin 
+##                        48.000                         1.366 
+##                         chisq                            df 
+##                       177.636                        87.000 
+##                        pvalue                  chisq.scaled 
+##                         0.000                       153.851 
+##                     df.scaled                 pvalue.scaled 
+##                        87.000                         0.000 
+##          chisq.scaling.factor                baseline.chisq 
+##                         1.155                       736.165 
+##                   baseline.df               baseline.pvalue 
+##                       105.000                         0.000 
+##         baseline.chisq.scaled            baseline.df.scaled 
+##                       604.057                       105.000 
+##        baseline.pvalue.scaled baseline.chisq.scaling.factor 
+##                         0.000                         1.219 
+##                           cfi                           tli 
+##                         0.856                         0.827 
+##                    cfi.scaled                    tli.scaled 
+##                         0.866                         0.838 
+##                    cfi.robust                    tli.robust 
+##                         0.873                         0.847 
+##                          logl             unrestricted.logl 
+##                     -1096.642                     -1007.824 
+##                           aic                           bic 
+##                      2289.285                      2393.655 
+##                        ntotal                          bic2 
+##                        65.000                      2242.563 
+##                         rmsea                rmsea.ci.lower 
+##                         0.127                         0.100 
+##                rmsea.ci.upper                rmsea.ci.level 
+##                         0.153                         0.900 
+##                  rmsea.pvalue                rmsea.close.h0 
+##                         0.000                         0.050 
+##         rmsea.notclose.pvalue             rmsea.notclose.h0 
+##                         0.997                         0.080 
+##                  rmsea.scaled         rmsea.ci.lower.scaled 
+##                         0.109                         0.082 
+##         rmsea.ci.upper.scaled           rmsea.pvalue.scaled 
+##                         0.135                         0.001 
+##  rmsea.notclose.pvalue.scaled                  rmsea.robust 
+##                         0.961                         0.117 
+##         rmsea.ci.lower.robust         rmsea.ci.upper.robust 
+##                         0.086                         0.147 
+##           rmsea.pvalue.robust  rmsea.notclose.pvalue.robust 
+##                         0.001                         0.973 
+##                          srmr 
+##                         0.109</code></pre>
+<p>The resulting goodness-of-fit indexes for this model revealed
+unacceptable values (i.e., CFI = 0.856, RMSEA = 0.127; SRMR = 0.109)</p>
 </div>
 
 

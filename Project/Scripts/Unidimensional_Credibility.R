@@ -2,7 +2,7 @@ library(readr)
 coildata <- coildata <- read_csv("Data/coildata.csv")
 
 library(lavaan);
-modelData <- read.table(DATAFILENAME, header = TRUE) ;
+modelData <- coildata
 model<-"
 ! regressions 
    CR=~CR__CR1*CR1

@@ -25,9 +25,12 @@ model<-"
    SP5~1;
 ";
 
-result2 <- cfa(model, data=coildata, fixed.x=FALSE, estimator="MLM", std.ov = TRUE);
+result2 <- cfa(model, data=coildata, fixed.x=FALSE, estimator="MLM", std.ov = TRUE, std.lv = TRUE);
 summary(result2, fit.measures=TRUE);
 
 SP <- summary(result2, fit.measures=TRUE)
+ParametersSP <- data.frame(SP$pe)
+round(ParametersSP$est, digits = 2)
+
 SP <- data.frame(SP$fit)
 SP$Index <- rownames(SP)

@@ -14,7 +14,7 @@ knitr::kable(head(mtcars[, 1:4]), "pipe")
 ```
 
 
-# Strategy 1: Examining distributional assumptions
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -22,7 +22,7 @@ library(readr)
 coildata <- coildata <- read_csv("Data/coildata.csv")
 ```
 
-## Testing Univariate and Multivariate Normal Distribution Assumptions
+# Testing Univariate and Multivariate Normal Distribution Assumptions
 
 The evaluation of these assumptions is relatively straightforward through exploratory data visualization of kernel density plots and the Henze-Zirkler test implemented in the R package MVN
 
@@ -41,4 +41,10 @@ library(MVN)
 mvn(coildata)
 ```
 
-These results show that the univariate and multivariate normal distribution assumptions are unmet. As a result, these violations can be a possible cause of poor fit when testing the psychometric structure of the transactive memory systems scale. In the remainder of 
+These results show that the univariate and multivariate normal distribution assumptions are unmet. As a result, these violations can be a possible lead to biased estimates and a poor fit when testing the psychometric structure of the transactive memory systems scale.
+
+# Testing Unidimensional Structures
+
+Now, we follow a bottom-up model specification according to which we are going to test the unidimensionality of the observed variables for the specialization sub-scale, the credibility sub-scale, and the coordination sub-scale. 
+
+## Unidimensionality of Specialization

@@ -65,6 +65,41 @@ CO <- summary(result7, fit.measures=TRUE)
 CollaborationParEst <- data.frame(CO$pe)
 CollaborationFIT <- data.frame(CO$fit)
 
+library(semPlot)
+png("Results/F1.png", width = 35, height = 20, units = 'in', res = 300)
+semPaths(result7, whatLabels = "none", layout = "tree", color = list(
+  lat = c(rgb(0, 204, 0, maxColorValue = 255),
+          rgb(255, 255, 0, maxColorValue = 255),
+          rgb(255, 0, 0, maxColorValue = 255)),
+  man = c(rgb(155, 255, 175, maxColorValue = 255),
+          rgb(155, 255, 175, maxColorValue = 255),
+          rgb(155, 255, 175, maxColorValue = 255),
+          rgb(155, 255, 175, maxColorValue = 255),
+          rgb(155, 255, 175, maxColorValue = 255),
+          rgb(255, 255, 153, maxColorValue = 255),
+          rgb(255, 255, 153, maxColorValue = 255),
+          rgb(255, 255, 153, maxColorValue = 255),
+          rgb(255, 255, 153, maxColorValue = 255),
+          rgb(255, 255, 153, maxColorValue = 255),
+          rgb(255, 102, 102, maxColorValue = 255),
+          rgb(255, 102, 102, maxColorValue = 255),
+          rgb(255, 102, 102, maxColorValue = 255),
+          rgb(255, 102, 102, maxColorValue = 255),
+          rgb(255, 102, 102, maxColorValue = 255))),
+  edge.color = "black",
+  edge.label.cex = 1,
+  edge.width = 1.5,
+  label.cex = 1,
+  node.width = 1,
+  node.height = 1,
+  mar = c(5, 1, 5, 1), intercepts = FALSE, residuals = FALSE, nCharNodes = 0)
+dev.off()
+
+
+
+
+
+
 
 modelData <- coildata ;
 modelCO2 <-

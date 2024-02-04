@@ -283,7 +283,7 @@ knitr::kable(head(CD2$pe, 3), "pipe")
 
 # Testing Multidimensionality of Collaboration
 
-When testing the unidimensionality of each sub-scale, we found evidence that none of them behave as expected with their five observed variables, and we had to test simpler models by removing those items with a gross deviation from theoretical considerartions. It goes without saying that if we test the multidimensionality of the transactive memory scale, its behavior will be far from satisfactory when all fifteen items are included in the specification. We will show that this is the case as follows.
+When testing the unidimensionality of each sub-scale, we found evidence that none of them behave as expected with their five observed variables, and we had to test simpler models by removing those items with a gross deviation from theoretical considerartions. It goes without saying that if we test the multidimensionality of the transactive memory systems scale, its behavior will be far from satisfactory when all fifteen items are included in the specification. We will show that this is the case as follows.
 
 ```{r}
 modelData <- coildata ;
@@ -425,5 +425,41 @@ semPaths(result8, whatLabels = "std", layout = "tree", color = list(
   node.width = 1,
   node.height = 1,
   mar = c(5, 1, 5, 1), intercepts = FALSE, residuls = FALSE, nCharNodes = 0)
+
+FIT2
+```
+
+# Bottom-Up Estimation with Model Implied Instrumental Variables
+
+Let us re-estimate the unidimensionality of the Specialization sub-scale 
+
+```{r, warning=FALSE}
+library(semPlot)
+semPaths(result2, whatLabels = "std", layout = "tree", color = list(lat = rgb(0, 204, 0, maxColorValue = 255),
+ man = rgb(155, 253, 175, maxColorValue = 255)),
+ edge.color = "black",
+ edge.label.cex = 1,
+ edge.width = 1.5,
+ label.cex = 1,
+ node.width = 1,
+ node.height = 1,
+ title = FALSE, intercepts = FALSE, residuls = FALSE, nCharNodes = 0)
+
+mtext("CFI = 0.997, RMSEA = 0.051; SRMR = 0.021", side = 1, line = -1, outer = TRUE)
+```
+
+```{r}
+library(semPlot)
+semPaths(result4, whatLabels = "std", layout = "tree", color = list(lat = rgb(255, 255, 0, maxColorValue = 255),
+ man = rgb(255, 255, 153, maxColorValue = 255)),
+ edge.color = "black",
+ edge.label.cex = 1,
+ edge.width = 1.5,
+ label.cex = 1,
+ node.width = 1,
+ node.height = 1,
+ title = FALSE, intercepts = FALSE, residuls = FALSE, nCharNodes = 0)
+
+mtext("CFI = 0.997, RMSEA = 0.051; SRMR = 0.021", side = 1, line = -1, outer = TRUE)
 ```
 

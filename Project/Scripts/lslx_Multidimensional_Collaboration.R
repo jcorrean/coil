@@ -10,3 +10,34 @@ SP ~~ 1 * SP
 CR ~~ 1 * CR
 CD ~~ 1 * CD
 "
+
+lslx_fa <- lslx$new(model = modelCO,
+                    data = coildata)
+
+lslx_fa$print()
+
+lslx_fa$fit(
+  penalty_method = "lasso",
+  lambda_grid = seq(.01, .60, .01),
+  delta_grid = "default"
+)
+
+lslx_fa$summarize(selector = "bic", interval = FALSE)
+
+pave <- plsem(model = modelCO,
+              data = coildata,
+              penalty_method = "mcp",
+              lambda_grid = seq(.01, .60, .01),
+              delta_grid = c(1.5, 3.0, Inf))
+
+hola <- data.frame(pave$extract_fit_index(selector = "bic"))
+PAVE <- pave$test_coefficient(selector = "bic")
+
+pave$summarize(selector = "bic")$intercepts
+pave$test_lr(selector = "bic")
+holas <- pave$test_lr(selector = "bic")
+
+
+pave$plot_fit_index()
+pave$plot_numerical_condition()
+pave$plot_coefficient()

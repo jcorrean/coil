@@ -59,7 +59,8 @@ modelCO <-"
    CD4~1;
    CD5~1;
 "
-result7 <- cfa(modelCO, data=coildata, fixed.x=FALSE, estimator="MLM", std.ov = TRUE, std.lv = TRUE);
+result7 <- cfa(modelCO, data=coildata, fixed.x=FALSE, estimator="MLM", std.ov = FALSE, std.lv = FALSE);
 CO <- summary(result7, fit.measures=TRUE)
-CollaborationParEst <- data.frame(CO$pe)
+EstimatesML <- data.frame(CO$pe)
+rm(list=setdiff(ls(), "EstimatesML"))
 save.image("~/Documents/GitHub/coil/Project/Results/ML_Estimates.RData")

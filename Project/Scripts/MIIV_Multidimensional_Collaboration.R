@@ -63,5 +63,5 @@ library(MIIVsem)
 miivs(modelCO)
 model1_miiv <- miive(model = modelCO, data = coildata, sarg.adjust = "holm")
 EstimatesMIIV <- estimatesTable(model1_miiv)
-
+rm(list=setdiff(ls(), "EstimatesMIIV"))
 save.image("~/Documents/GitHub/coil/Project/Results/MIIV_Estimates.RData")

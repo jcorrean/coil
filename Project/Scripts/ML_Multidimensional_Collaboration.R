@@ -62,4 +62,4 @@ modelCO <-"
 result7 <- cfa(modelCO, data=coildata, fixed.x=FALSE, estimator="MLM", std.ov = TRUE, std.lv = TRUE);
 CO <- summary(result7, fit.measures=TRUE)
 CollaborationParEst <- data.frame(CO$pe)
-CollaborationFIT <- data.frame(CO$fit)
+save.image("~/Documents/GitHub/coil/Project/Results/ML_Estimates.RData")

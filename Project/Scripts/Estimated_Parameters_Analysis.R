@@ -31,16 +31,19 @@ library(psych)
 describe.by(Estimations$se, group = Estimations$Method, mat = TRUE, digits = 3)
 
 library(ggplot2)
+png("Results/F5A.png", width = 15, height = 8, units = 'in', res = 300)
 ggplot(Estimations, aes(x=est, y=se, color =Method)) +
   geom_point() + # Show dots
   geom_text(
     label=Estimations$rhs, 
     nudge_x = 0.01, nudge_y = 0.01, 
-    check_overlap = T
+    check_overlap = F
   ) +
   theme_bw() +
-  theme(legend.position = "top")
-
+  theme(legend.position = "top") +
+  xlab("Statistical Estimation") + 
+  ylab("Standard Error")
+dev.off()
 
 library(ggridges)
 library(ggplot2)
@@ -53,3 +56,4 @@ ggplot(Estimations, aes(x = se, y = Method)) +
   scale_fill_manual(values = c("#131324", "#E7B800", "#7c0cc7")) +
   theme_minimal() +
   theme(legend.position = "none")
+

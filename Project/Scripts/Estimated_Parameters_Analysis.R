@@ -40,7 +40,11 @@ ggplot(Estimations, aes(x=est, y=se, color =Method)) +
     check_overlap = F
   ) +
   theme_bw() +
-  theme(legend.position = "top") +
+  theme(
+    legend.position = "top",
+    axis.title = element_text(size = 12, color = "black"), 
+    axis.text = element_text(size = 12, color = "black") 
+  ) +
   xlab("Statistical Estimation") + 
   ylab("Standard Error")
 dev.off()
@@ -49,11 +53,18 @@ library(ggridges)
 library(ggplot2)
 library(viridis)
 library(hrbrthemes)
-
-# Plot
+png("Results/F5B.png", width = 15, height = 8, units = 'in', res = 300)
 ggplot(Estimations, aes(x = se, y = Method)) +
   geom_density_ridges(alpha = 0.7, aes(fill = Method)) +
   scale_fill_manual(values = c("#131324", "#E7B800", "#7c0cc7")) +
   theme_minimal() +
-  theme(legend.position = "none")
+  theme(
+    legend.position = "none", # Removing the legend
+    axis.title = element_text(size = 14, colour = "black"), 
+    axis.text = element_text(size = 14, color = "black") 
+  ) + 
+  xlab("Standard error of estimation")
+dev.off()
+
+
 

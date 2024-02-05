@@ -31,7 +31,7 @@ pave <- plsem(model = modelCO,
               delta_grid = c(1.5, 3.0, Inf))
 
 hola <- data.frame(pave$extract_fit_index(selector = "bic"))
-PAVE <- pave$test_coefficient(selector = "bic")
+EstimatesLSLX <- pave$test_coefficient(selector = "bic")
 
 pave$summarize(selector = "bic")$intercepts
 pave$test_lr(selector = "bic")
@@ -41,4 +41,5 @@ holas <- pave$test_lr(selector = "bic")
 pave$plot_fit_index()
 pave$plot_numerical_condition()
 pave$plot_coefficient()
+rm(list=setdiff(ls(), "EstimatesLSLX"))
 save.image("~/Documents/GitHub/coil/Project/Results/lslx_Estimates.RData")

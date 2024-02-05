@@ -17,7 +17,7 @@ lslx_fa <- lslx$new(model = modelCO,
 lslx_fa$print()
 
 lslx_fa$fit(
-  penalty_method = "lasso",
+  penalty_method = "mcp",
   lambda_grid = seq(.01, .60, .01),
   delta_grid = "default"
 )
@@ -43,3 +43,4 @@ pave$plot_numerical_condition()
 pave$plot_coefficient()
 rm(list=setdiff(ls(), "EstimatesLSLX"))
 save.image("~/Documents/GitHub/coil/Project/Results/lslx_Estimates.RData")
+
